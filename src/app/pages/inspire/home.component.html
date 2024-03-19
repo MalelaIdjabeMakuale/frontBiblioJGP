@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body class=" p-4 font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover mt-20" style="background: #f2fbf8">
+    <div id="bookInfo" class="randomDiv">
+    
+    </div>
+
+ 
+    <div class="catalogueDiv">
+     
+      
+
+
+
+@if (novels.length > 0) {<h1>Novela</h1>
+  <ul class="catalogueList">
+    @for (book of novels; track $index) {
+      <div class="Book">
+       
+        <li>
+          <img routerLink="/catalogo/{{book._id}}"
+            class="catalogueImg"
+            src="{{ book.cover ? book.cover : 'https://i.ibb.co/F4schKv/A4-documento-Portada-minimalista-negro.png' }}" alt="{{book.title}}"
+          />
+        </li>
+        <li class="bookInfo">
+          <b>{{ book.title }}</b>
+        </li>
+        <li class="bookInfo">{{ book.author }}</li>
+      </div>
+    }
+  </ul>
+}
+
+
+@if (nonFiction.length > 0) {<h1>NO FICCIÓN</h1>
+  <ul class="catalogueList">
+    @for (book of nonFiction; track $index) {
+      <div class="Book">
+       
+        <li>
+          <img routerLink="/catalogo/{{book._id}}"
+            class="catalogueImg"
+            src="{{ book.cover ? book.cover : 'https://i.ibb.co/F4schKv/A4-documento-Portada-minimalista-negro.png' }}" alt="{{book.title}}"
+          />
+        </li>
+        <li class="bookInfo">
+          <b>{{ book.title }}</b>
+        </li>
+        <li class="bookInfo">{{ book.author }}</li>
+      </div>
+    }
+  </ul>
+}
+
+
+@if (poetry.length > 0) {<h1>POESÍA</h1>
+  <ul class="catalogueList">
+    @for (book of poetry; track $index) {
+      <div class="Book">
+       
+        <li>
+          <img routerLink="/catalogo/{{book._id}}"
+            class="catalogueImg"
+            src="{{ book.cover ? book.cover : 'https://i.ibb.co/F4schKv/A4-documento-Portada-minimalista-negro.png' }}" alt="{{book.title}}"
+          />
+        </li>
+        <li class="bookInfo">
+          <b>{{ book.title }}</b>
+        </li>
+        <li class="bookInfo">{{ book.author }}</li>
+      </div>
+    }
+  </ul>
+}
+
+
+
+      
+@if (shortStories.length > 0) {<h1>Relatos</h1>
+  <ul class="catalogueList">
+    @for (book of shortStories; track $index) {
+      <div class="Book">
+       
+        <li>
+          <img routerLink="/catalogo/{{book._id}}"
+            class="catalogueImg"
+            src="{{ book.cover ? book.cover : 'https://i.ibb.co/F4schKv/A4-documento-Portada-minimalista-negro.png' }}" alt="{{book.title}}"
+          />
+        </li>
+        <li class="bookInfo">
+          <b>{{ book.title }}</b>
+        </li>
+        <li class="bookInfo">{{ book.author }}</li>
+      </div>
+    }
+  </ul>
+}
+
+@if (graphicNovels.length > 0) {<h1>Novela gráfica</h1>
+  <ul class="catalogueList">
+    @for (book of graphicNovels; track $index) {
+      <div class="Book">
+       
+        <li>
+          <img routerLink="/catalogo/{{book._id}}"
+            class="catalogueImg"
+            src="{{ book.cover ? book.cover : 'https://i.ibb.co/F4schKv/A4-documento-Portada-minimalista-negro.png' }}" alt="{{book.title}}"
+          />
+        </li>
+        <li class="bookInfo">
+          <b>{{ book.title }}</b>
+        </li>
+        <li class="bookInfo">{{ book.author }}</li>
+      </div>
+    }
+  </ul>
+}
+   
+    </div>
+  </body>
+</html>

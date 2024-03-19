@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/> 
+    <title>Document</title>
+  </head>
+  <body class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover" style="background: #f2fbf8">
+
+    <div class="bookDetail">
+      <div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
+    
+        <!--Main Col-->
+        <div id="profile" class="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0">
+        
+      
+          <div class="p-4 md:p-12 text-center lg:text-left">
+            <!-- Image for mobile view-->
+            <div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/MP0IUfwrn0A')"></div>
+            
+            <h1 class="text-3xl font-bold pt-8 lg:pt-0">{{ book.title }}</h1>
+            <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
+            <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start"><img class="h-5 fill-current text-green-700 pr-4" src="../../../assets/images/icons8-writer-50.png"> {{ book.author }}</p>
+            <p class="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start"><img class="h-5 fill-current text-green-700 pr-4" src="../../../assets/images/icons8-info-50.png"> {{ book.genre }} | {{ book.pages }} pág. | {{book.publisher}} | {{book.publication_year}} | {{ book.country }} | <br>
+              ¿Prestado? {{ book.isBorrowed ? "Sí" : "No" }} <br> Préstamo: {{ book.borrowedTo }} {{ book.borrowedBy }}</p> 
+            <p class="pt-8 text-sm">Pequeño comentario o anotación sobre el libro</p>
+      
+            <div class="pt-12 pb-8">
+              <button routerLink="editar/:id" class="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full">
+                Editar
+              </button> 
+            </div>
+      
+            <div class="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-between">
+              <img class= " favoritos h-6 fill-current text-gray-600 hover:text-green-700" src="../../../assets/images/icons8-heart-48.png">
+              <img class="h-6 fill-current text-gray-600 hover:text-green-700" src="../../../assets/images/icons8-list-48.png"> 
+             <img class="h-6 fill-current text-gray-600 hover:text-green-700" src="../../../assets/images/icons8-share-24.png">
+              
+            </div>
+            
+         
+      
+          </div>
+      
+        </div>
+        
+        <!--Img Col-->
+        <div class="w-full lg:w-2/5">
+          <!-- Big profile image for side bar (desktop) -->
+          <img src="{{book.cover}}" class="rounded-none lg:rounded-lg shadow-2xl  w-full h-full  object-cover">
+      </div>
+      
+        
+        
+       
+      </div>
+      
+       
+
+ 
+    </div>
+  </body>
+</html>

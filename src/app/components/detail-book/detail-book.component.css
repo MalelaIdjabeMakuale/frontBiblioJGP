@@ -1,0 +1,21 @@
+
+.bodyDetail {
+    background-color: #fcf8ee;
+    margin: 0;
+    margin-top: 0;
+    padding: 0;
+    display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: capitalize;
+  
+  }
+  
+  .bookDetail {
+    text-align: center;
+  }
+
+  .detailCover {
+    width: 40%; 
+
+  }

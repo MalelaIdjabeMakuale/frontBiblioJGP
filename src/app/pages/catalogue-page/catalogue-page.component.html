@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body
+    class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover mt-20"
+    style="background: #f2fbf8"
+  >
+    <div
+      class="border border-gray-300 p-6 grid grid-cols-1 gap-6 bg-white shadow-lg rounded-lg"
+    >
+      <div class="flex flex-col md:flex-row">
+        <div class="">
+          <h5><b>Género</b></h5>
+          <select [(ngModel)]="searchGenre" (change)="searchBooksbyGenre()">
+            <option value="">Todos</option>
+            <option value="no ficción">No ficción</option>
+            <option value="novela">Novela</option>
+            <option value="novela gráfica">Novela Gráfica</option>
+            <option value="poesía">Poesía</option>
+            <option value="relatos">Relatos</option>
+          </select>
+        </div>
+
+        <div class="pt-6 md:pt-0 md:pl-6">
+          <h5><b>Año de publicación</b></h5>
+          <input
+            type="number"
+            [(ngModel)]="searchYear"
+            (input)="searchBooksbyYear()"
+            placeholder="Año de publicación"
+          />
+        </div>
+
+        <div class="pt-6 md:pt-0 md:pl-6">
+          <h5><b>Número máximo de páginas</b></h5>
+          <input
+            type="number"
+            [(ngModel)]="searchPages"
+            (input)="searchBooksbyPages()"
+            placeholder="número de páginas"
+          />
+        </div>
+        <div class="pt-6 md:pt-0 md:pl-6">
+          <h5><b>¿Es prestado?</b></h5>
+          <select
+            [(ngModel)]="searchBorrowed"
+            (change)="searchBooksbyBorrowed()"
+          >
+            <option value=""></option>
+            <option value="true">Prestado</option>
+            <option value="false">No prestado</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-2 gap-2 border border-gray-200 p-2 rounded">
+          <input
+            class="flex border rounded bg-gray-300 items-center p-2"
+            type="text"
+            [(ngModel)]="searchTitle"
+            (input)="searchBooksbyTitle()"
+            placeholder="Buscar libro por título..."
+          />
+
+          <input
+            class="flex border rounded bg-gray-300 items-center p-2"
+            type="text"
+            [(ngModel)]="searchAuthor"
+            (input)="searchBooksbyAuthor()"
+            placeholder="Buscar libro por autoría..."
+          />
+        </div>
+        <div class="grid grid-cols-2 gap-2 border border-gray-200 p-2 rounded">
+         
+
+          <input
+            class="flex border rounded bg-gray-300 items-center p-2"
+            type="text"
+            [(ngModel)]="searchLanguage"
+            (input)="searchBooksbyLanguage()"
+            placeholder="no funciona idioma"
+          />
+
+          <input
+            class="flex border rounded bg-gray-300 items-center p-2"
+            type="text"
+            [(ngModel)]="searchCountry"
+            (input)="searchBooksbyCountry()"
+            placeholder="no funciona país"
+          />
+        </div>
+      </div>
+      <div class="flex justify-center">
+        <button
+          class="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+
+    <div
+      class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover"
+      style="background: #f2fbf8"
+    >
+      <div class="py-16 sm:py-24 lg:mx-auto lg:max-w-7xl lg:px-8">
+        <div class="flex items-center justify-between px-4 sm:px-6 lg:px-0">
+          <h2 class="text-2xl font-bold tracking-tight text-gray-900">
+            Libros({{ catalogueLength }})
+          </h2>
+        </div>
+
+        <ul
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 p-6"
+        >
+          @for (book of booksList; track $index) {
+          <div class="Book">
+            <li>
+              <img
+                routerLink="/catalogo/{{ book._id }}"
+                class="catalogueImg w-full h-auto cursor-pointer transition-transform hover:scale-110 hover:opacity-80"
+                src="{{ book.cover ? book.cover : 'https://i.ibb.co/F4schKv/A4-documento-Portada-minimalista-negro.png' }}"
+                alt="{{ book.title }}"
+              />
+            </li>
+            <li class="text-center">{{ book.genre }}</li>
+            <li class="bookInfo text-center">
+              <b>{{ book.title }}</b>
+            </li>
+            <li class="bookInfo text-center">{{ book.author }}</li>
+          </div>
+          }
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

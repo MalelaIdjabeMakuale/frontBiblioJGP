@@ -1,0 +1,51 @@
+
+.bodyCatalogue {
+  background-color: #fcf8ee;
+  margin: 0;
+  margin-top: 0;
+  padding: 0;
+
+}
+
+.randomDiv {
+  background-color:rgb(116, 212, 190, 0.4);
+
+  display: flex;
+   justify-content: space-between;
+
+  .randomBook {
+    list-style-type: none;
+    text-transform: capitalize;
+    color: #2f3234;
+  }
+
+}
+
+
+
+.catalogueList {
+  list-style-type: none;
+  display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+}
+.Book {
+    border: none;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .catalogueImg {
+    width: 80%;
+  
+  }
+
+  .bookInfo {
+    text-transform: capitalize;
+    color: #2f3234;
+  }
+
+
+ 
+  
+  

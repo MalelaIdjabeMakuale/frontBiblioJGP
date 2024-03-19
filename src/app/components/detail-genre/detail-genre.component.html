@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="p-4 font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover mt-20" style="background: #f2fbf8">
+
+    <h1 class="capitalize"><b>{{genre}}</b></h1>
+    @for (book of books; track $index) {
+        <h1 class="p-4 hover:underline capitalize" routerLink="/catalogo/{{book._id}}">{{book.title}}</h1>
+       
+        }
+</body>
+</html>

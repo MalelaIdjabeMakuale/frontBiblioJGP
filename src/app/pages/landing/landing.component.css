@@ -1,0 +1,42 @@
+.body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  .container {  display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    .videoHome {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1000;
+      object-fit: cover;
+      filter: blur(5px);
+    }
+   
+    
+      .logoJGP {
+        height: 60%;
+        width: 60%;
+      }
+      .startBtn {
+        position: absolute;
+      bottom: 20px; 
+        background-color: rgba(33, 124, 109, 0.5);
+        border: none;
+        border-radius: 5px;
+        width: 30%;
+        padding: 8px;
+        color: #fff;
+        cursor: pointer;
+      }
+      .startBtn:hover {
+        background-color: #217c6dcc;
+      }
+    
+  }
+}
