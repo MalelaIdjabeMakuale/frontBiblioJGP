@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from '../../services/users.service';
-import { IUsers } from '../../interfaces/i-users';
+import { AuthenticateService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-login-user',
@@ -29,37 +29,40 @@ export class LoginUserComponent implements OnInit {
   });
 
   loginForm: FormGroup = new FormGroup({
-    name: new FormControl(''),
+    username: new FormControl(''),
     password: new FormControl(''),
   });
 
   onSubmit() {
     if (this.showLoginForm && this.loginForm.valid) {
       const loginFormData = this.loginForm.value;
-      this.usersService.loginUser(loginFormData).then((response) => {
-        console.log('Login successful', response);
-        console.log('Login successful', response.data.token);
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('id_user', response.data.user._id);
-        localStorage.setItem('user_name', response.data.user.name);
-        console.log(this.loginForm.value);
-        this.router.navigate(['/catalogo']);
-      });
+
+
+      this.usersService.loginUser(loginFormData).subscribe((response:any) => {
+        console.log('se ha logueado?', response);
+
+       localStorage.setItem('user_name',response.name);
+      console.log('local.storage', response.name)     
+          this.router.navigate(['/catalogo']);
+        },
+        (error) => {
+          console.error('Error during login:', error);
+        }
+      );
     } else if (!this.showLoginForm && this.registerForm.valid) {
       const password = this.registerForm.get('password')?.value;
       const confirmPassword = this.registerForm.get('confirmPassword')?.value;
       if (password === confirmPassword) {
         const registerFormData = this.registerForm.value;
-        this.usersService
-          .registerUser(registerFormData)
-          .then((response) => {
+        this.usersService.createUser(registerFormData).subscribe(
+          (response) => {
             console.log('Register successful', response);
-            console.log(this.registerForm.value);
             this.router.navigate(['/catalogo']);
-          })
-          .catch((error) => {
+          },
+          (error) => {
             console.error('Error during registration:', error);
-          });
+          }
+        );
       } else {
         alert('Las contraseñas no son iguales');
       }

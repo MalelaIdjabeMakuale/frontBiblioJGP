@@ -20,19 +20,19 @@
 @if (novels.length > 0) {<h1>Novela</h1>
   <ul class="catalogueList">
     @for (book of novels; track $index) {
-      <div class="Book">
-       
-        <li>
-          <img routerLink="/catalogo/{{book._id}}"
-            class="catalogueImg"
-            src="{{ book.cover ? book.cover : 'https://i.ibb.co/F4schKv/A4-documento-Portada-minimalista-negro.png' }}" alt="{{book.title}}"
-          />
-        </li>
-        <li class="bookInfo">
-          <b>{{ book.title }}</b>
-        </li>
-        <li class="bookInfo">{{ book.author }}</li>
-      </div>
+      <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl sm:p-2">
+        <a routerLink="/catalogo/{{ book._id }}">
+            <img  src="{{ book.cover ? book.cover : 'https://i.ibb.co/F4schKv/A4-documento-Portada-minimalista-negro.png' }}"
+            alt="{{ book.title }}" class="h-80 w-72 object-cover rounded-t-xl" />
+            <div class="px-4 py-3 w-72">
+                <span class="text-gray-400 mr-3 uppercase text-xs">{{ book.genre }}</span>
+                <p class="text-lg font-bold text-black truncate block capitalize">{{ book.title }}</p>
+                <div class="flex items-center">
+                    <p class="text-lg text-gray cursor-auto my-3 capitalize">{{ book.author }}</p>
+                </div>
+            </div>
+        </a>
+    </div>
     }
   </ul>
 }
@@ -41,19 +41,19 @@
 @if (nonFiction.length > 0) {<h1>NO FICCIÓN</h1>
   <ul class="catalogueList">
     @for (book of nonFiction; track $index) {
-      <div class="Book">
-       
-        <li>
-          <img routerLink="/catalogo/{{book._id}}"
-            class="catalogueImg"
-            src="{{ book.cover ? book.cover : 'https://i.ibb.co/F4schKv/A4-documento-Portada-minimalista-negro.png' }}" alt="{{book.title}}"
-          />
-        </li>
-        <li class="bookInfo">
-          <b>{{ book.title }}</b>
-        </li>
-        <li class="bookInfo">{{ book.author }}</li>
-      </div>
+      <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl sm:p-2">
+        <a routerLink="/catalogo/{{ book._id }}">
+            <img  src="{{ book.cover ? book.cover : 'https://i.ibb.co/F4schKv/A4-documento-Portada-minimalista-negro.png' }}"
+            alt="{{ book.title }}" class="h-80 w-72 object-cover rounded-t-xl" />
+            <div class="px-4 py-3 w-72">
+                <span class="text-gray-400 mr-3 uppercase text-xs">{{ book.genre }}</span>
+                <p class="text-lg font-bold text-black truncate block capitalize">{{ book.title }}</p>
+                <div class="flex items-center">
+                    <p class="text-lg text-gray cursor-auto my-3 capitalize">{{ book.author }}</p>
+                </div>
+            </div>
+        </a>
+    </div>
     }
   </ul>
 }
@@ -62,19 +62,19 @@
 @if (poetry.length > 0) {<h1>POESÍA</h1>
   <ul class="catalogueList">
     @for (book of poetry; track $index) {
-      <div class="Book">
-       
-        <li>
-          <img routerLink="/catalogo/{{book._id}}"
-            class="catalogueImg"
-            src="{{ book.cover ? book.cover : 'https://i.ibb.co/F4schKv/A4-documento-Portada-minimalista-negro.png' }}" alt="{{book.title}}"
-          />
-        </li>
-        <li class="bookInfo">
-          <b>{{ book.title }}</b>
-        </li>
-        <li class="bookInfo">{{ book.author }}</li>
-      </div>
+      <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl sm:p-2">
+        <a routerLink="/catalogo/{{ book._id }}">
+            <img  src="{{ book.cover ? book.cover : 'https://i.ibb.co/F4schKv/A4-documento-Portada-minimalista-negro.png' }}"
+            alt="{{ book.title }}" class="h-80 w-72 object-cover rounded-t-xl" />
+            <div class="px-4 py-3 w-72">
+                <span class="text-gray-400 mr-3 uppercase text-xs">{{ book.genre }}</span>
+                <p class="text-lg font-bold text-black truncate block capitalize">{{ book.title }}</p>
+                <div class="flex items-center">
+                    <p class="text-lg text-gray cursor-auto my-3 capitalize">{{ book.author }}</p>
+                </div>
+            </div>
+        </a>
+    </div>
     }
   </ul>
 }
@@ -85,19 +85,19 @@
 @if (shortStories.length > 0) {<h1>Relatos</h1>
   <ul class="catalogueList">
     @for (book of shortStories; track $index) {
-      <div class="Book">
-       
-        <li>
-          <img routerLink="/catalogo/{{book._id}}"
-            class="catalogueImg"
-            src="{{ book.cover ? book.cover : 'https://i.ibb.co/F4schKv/A4-documento-Portada-minimalista-negro.png' }}" alt="{{book.title}}"
-          />
-        </li>
-        <li class="bookInfo">
-          <b>{{ book.title }}</b>
-        </li>
-        <li class="bookInfo">{{ book.author }}</li>
-      </div>
+      <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl sm:p-2">
+        <a routerLink="/catalogo/{{ book._id }}">
+            <img  src="{{ book.cover ? book.cover : 'https://i.ibb.co/F4schKv/A4-documento-Portada-minimalista-negro.png' }}"
+            alt="{{ book.title }}" class="h-80 w-72 object-cover rounded-t-xl" />
+            <div class="px-4 py-3 w-72">
+                <span class="text-gray-400 mr-3 uppercase text-xs">{{ book.genre }}</span>
+                <p class="text-lg font-bold text-black truncate block capitalize">{{ book.title }}</p>
+                <div class="flex items-center">
+                    <p class="text-lg text-gray cursor-auto my-3 capitalize">{{ book.author }}</p>
+                </div>
+            </div>
+        </a>
+    </div>
     }
   </ul>
 }
@@ -105,19 +105,19 @@
 @if (graphicNovels.length > 0) {<h1>Novela gráfica</h1>
   <ul class="catalogueList">
     @for (book of graphicNovels; track $index) {
-      <div class="Book">
-       
-        <li>
-          <img routerLink="/catalogo/{{book._id}}"
-            class="catalogueImg"
-            src="{{ book.cover ? book.cover : 'https://i.ibb.co/F4schKv/A4-documento-Portada-minimalista-negro.png' }}" alt="{{book.title}}"
-          />
-        </li>
-        <li class="bookInfo">
-          <b>{{ book.title }}</b>
-        </li>
-        <li class="bookInfo">{{ book.author }}</li>
-      </div>
+      <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl sm:p-2">
+        <a routerLink="/catalogo/{{ book._id }}">
+            <img  src="{{ book.cover ? book.cover : 'https://i.ibb.co/F4schKv/A4-documento-Portada-minimalista-negro.png' }}"
+            alt="{{ book.title }}" class="h-80 w-72 object-cover rounded-t-xl" />
+            <div class="px-4 py-3 w-72">
+                <span class="text-gray-400 mr-3 uppercase text-xs">{{ book.genre }}</span>
+                <p class="text-lg font-bold text-black truncate block capitalize">{{ book.title }}</p>
+                <div class="flex items-center">
+                    <p class="text-lg text-gray cursor-auto my-3 capitalize">{{ book.author }}</p>
+                </div>
+            </div>
+        </a>
+    </div>
     }
   </ul>
 }
