@@ -8,7 +8,10 @@ import { DetailAuthorComponent } from './components/detailAuthor/detail-author/d
 import { GenreComponent } from './pages/genre/genre.component';
 import { DetailGenreComponent } from './components/detail-genre/detail-genre.component';
 import { EditarComponent } from './pages/editar/editar.component';
-import { LoginUserComponent } from './pages/login-user/login-user.component';
+
+import { UserpageComponent } from './pages/userpage/userpage.component';
+import { LoginRegisterComponent } from './pages/login-register/login-register.component';
+import { LoginComponent } from './pages/login/login.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -20,5 +23,7 @@ export const routes: Routes = [
   { path: 'genero', component: GenreComponent },
   { path: 'genero/:genre', component: DetailGenreComponent },
   { path: 'editar/:id', component: EditarComponent },
-  { path: 'login', component: LoginUserComponent },
+  { path: 'register', component: LoginRegisterComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'user', component: UserpageComponent}
 ];

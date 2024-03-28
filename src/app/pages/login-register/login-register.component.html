@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body  class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover mt-20">
+    
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label> Username </label>
+            <input type="text" class="form-control" formControlName="username">
+        </div>
+
+        <div>
+            <label> Name </label>
+            <input type="text" class="form-control" formControlName="name">
+        </div>
+ <div>
+            <label> Imagen </label>
+            <input type="text" class="form-control" formControlName="image">
+        </div>
+        
+        <div>
+            <label> E-mail </label>
+            <input type="email" class="form-control" formControlName="email">
+        </div>
+
+        <div>
+            <label> Contraseña </label>
+            <input type="password" class="form-control" formControlName="password">
+        </div>
+
+       
+
+
+
+
+        <input type="submit" value="Enviar">
+
+
+    </form>
+
+
+
+</body>
+</html>
