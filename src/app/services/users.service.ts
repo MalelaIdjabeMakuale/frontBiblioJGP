@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { firstValueFrom } from 'rxjs';
-
+import { firstValueFrom, Observable, throwError} from 'rxjs';
+import { catchError } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -38,8 +38,12 @@ export class UsersService {
 
 
 
-  updateUserData(userData: any) {
-    // Enviar una solicitud HTTP para actualizar los datos del usuario en la API
-    return this.http.put(`${this.userUrl}/${userData.user_id}`, userData);
+  addToFavorites(userId: string, bookId: string): Observable<any> {
+    const url = `${this.userUrl}/${userId}/addToFavorites/${bookId}`;
+    return this.http.put(url, {}).pipe(
+      catchError((error) => {
+        return throwError(error);
+      })
+    );
   }
 }

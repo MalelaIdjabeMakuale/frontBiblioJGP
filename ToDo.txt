@@ -1,7 +1,6 @@
 
 
 (con aut) lista de deseos, listas de leídos con comentarios, quotes de libros que salgan en la ruleta aleatoria
-Autenticación usuarios 
 Random quotes
 
 
@@ -9,47 +8,16 @@ Random quotes
 - Menu hamburguesa (autores, catálogos)
 
 
-- Night Mode
-
-
-
-LANDING 
-Iniciar sesión / registro
-
-INSPIRE
-Ajustar imágenes
-Carrusel estilos
-
-DETALLE LIBROS
-Hacer que se vea la imagen del libro en el móvil
-Mirar cómo cambiar el fondo del libro
-Capitalize
-
-
-
-DETALLE AUTORES 
-Estilos
-Capitaloize
-
-CATÁLOGO
-Hacer que todas las fotos tengan la misma altura
-
-Añadir a favoritos
-Añadir a leídos
-
-
-CONSEJOS CRIS 
-Favs 
-Home -> Inspire 
-Manita para click 
-Inputs más pequños en el catálogo 
-Books Url 
-
-FECHAR LIBROS LEIDOS
 
 
 
 
-CLEAR LOCAL STORAGE al logout 
+Añadir a favoritos 
+Añadir a leídos (añadir fecha)
 
-NAVBAR que se muestre logout en vez de iniciar sesión y que se muestre 
+
+
+HACIENDO
+
+- añadir favoritos
+-añadir lista

@@ -32,22 +32,27 @@ export class DetailBookComponent implements OnInit {
     });
     this.userData = this.userService.getUserData();
   }
-  addToFavorites(): void {
-    // Verificar si hay datos del usuario
-    if (this.userData) {
-      // Inicializar favorites si aún no está definido
-      if (!this.userData.favorites) {
-        this.userData.favorites = [];
-      }
-      
-      // Verificar si ya existe el libro en la lista de favoritos
-      if (!this.userData.favorites.includes(this.book._id)) {
-        // Si no existe, añadirlo a la lista de favoritos
-        this.userData.favorites.push(this.book._id);
-        // Actualizar los datos del usuario en la API
-        this.userService.updateUserData(this.userData).subscribe(() => {
-          console.log('Datos del usuario actualizados en la API');
-        });
-      }
+
+  addToFavorites(): void { console.log('userdataid', this.userData.user_id)
+  console.log ('bookid', this.book._id)
+    // Check if user data and book data are available
+    if (this.userData && this.book) {
+      // Make API call to add book to favorites
+      this.userService.addToFavorites(this.userData.user_id, this.book._id).subscribe
+      (
+        (response: any) => {
+          // Update user data in local storage
+          this.userData = response.userData;
+          this.userService.setUserData(response.userData);
+          alert('Libro añadido a favoritos correctamente');
+        },
+        (error) => {
+          console.error('Error adding book to favorites:', error);
+          alert('Error al añadir el libro a favoritos');
+        }
+      );
     }
-  }}
+  }
+
+ 
+}
