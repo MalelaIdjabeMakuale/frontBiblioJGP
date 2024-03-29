@@ -25,5 +25,5 @@ export const routes: Routes = [
   { path: 'editar/:id', component: EditarComponent },
   { path: 'register', component: LoginRegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'user', component: UserpageComponent}
+  {path: 'usuario', component: UserpageComponent}
 ];

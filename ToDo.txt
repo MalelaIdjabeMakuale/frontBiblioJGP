@@ -44,3 +44,12 @@ Home -> Inspire
 Manita para click 
 Inputs más pequños en el catálogo 
 Books Url 
+
+FECHAR LIBROS LEIDOS
+
+
+
+
+CLEAR LOCAL STORAGE al logout 
+
+NAVBAR que se muestre logout en vez de iniciar sesión y que se muestre 

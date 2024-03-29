@@ -23,9 +23,19 @@ export class LoginComponent {
   }
 
   async onSubmit(){
-    const response = await  this.UsersService.login(this.loginForm.value);
-    console.log(response);
-    this.router.navigate(['/user'])
+    try {
+      const response = await this.UsersService.login(this.loginForm.value);
+      console.log('respuesta', response);
+      
+      const decodedToken = JSON.parse(atob(response.token.split('.')[1])); // Decodificar token JWT
+      console.log('Datos del usuario:', decodedToken);
+      
+      this.UsersService.setUserData(decodedToken); // Almacenar los datos del usuario en el almacenamiento local
+      
+      this.router.navigate(['/usuario']); // Redirigir a la página de usuario
+    } catch (error) {
+      console.error('Error en inicio de sesión:', error);
+    }
    }
  
 }
