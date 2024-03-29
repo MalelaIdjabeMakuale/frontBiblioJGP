@@ -19,5 +19,6 @@ Añadir a leídos (añadir fecha)
 
 HACIENDO
 
-- añadir favoritos
+- Los favoritos guarden el nombre y el titulo
+
 -añadir lista

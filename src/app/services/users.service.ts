@@ -29,7 +29,9 @@ export class UsersService {
 
   getUserData() {
     const userDataString = localStorage.getItem(this.userDataKey);
-    return userDataString ? JSON.parse(userDataString) : null;
+    const userData = userDataString ? JSON.parse(userDataString) : null;
+    console.log('Datos del usuario:', userData); 
+    return userData;
   }
 
   clearUserData() {
@@ -40,7 +42,7 @@ export class UsersService {
 
   addToFavorites(userId: string, bookId: string): Observable<any> {
     const url = `${this.userUrl}/${userId}/addToFavorites/${bookId}`;
-    return this.http.put(url, {}).pipe(
+    return this.http.put<any>(url, {}).pipe(
       catchError((error) => {
         return throwError(error);
       })

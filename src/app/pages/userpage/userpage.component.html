@@ -16,13 +16,37 @@
           <p class="text-gray-600">{{ userData.user_name }}</p>
         </div>
         <div class="px-6 py-4">
-        
-          <span class="inline-block px-2 py-1 font-semibold text-indigo-900 bg-indigo-200 rounded-full">Leídos 20</span>
-          <span class="inline-block px-2 py-1 font-semibold text-purple-900 bg-purple-200 rounded-full">Favoritos 20</span>
+         <span class="inline-block px-2 py-1 font-semibold text-purple-900 bg-purple-200 rounded-full">Favoritos {{ favoriteBooks.length }}</span>
+          <span class="inline-block px-2 py-1 font-semibold text-indigo-900 bg-indigo-200 rounded-full"> Leídos 20</span>
+         
         </div>
       </div>
       
       <div class="flex justify-between"> 
+
+<div class="bg-white shadow-md rounded-md overflow-hidden max-w-lg mx-auto mt-16">
+            <div class="bg-gray-100 py-2 px-4">
+                <h2 class="text-xl font-semibold text-gray-800">Favoritos</h2>
+            </div>        
+
+  <ul class="divide-y divide-gray-200">      <li class="flex items-center py-4 px-6">   
+@for (book of favoriteBooks; track $index) { 
+                    <span class="text-gray-700 text-lg font-medium mr-4">1.</span>
+    
+                    <div class="flex-1">
+                        <h3 class="text-lg font-medium text-gray-800">{{book.title}}</h3>
+                        <p class="text-gray-600 text-base">{{book.author}}</p>
+                    </div>
+              
+
+}
+          </li>
+    
+            </ul>
+        </div>
+    
+          </div>
+          
 <div class="bg-white shadow-md rounded-md overflow-hidden max-w-lg mx-auto mt-16">
         <div class="bg-gray-100 py-2 px-4">
             <h2 class="text-xl font-semibold text-gray-800">Leídos</h2>
@@ -56,41 +80,7 @@
         </ul>
     </div>
 
-    <div class="bg-white shadow-md rounded-md overflow-hidden max-w-lg mx-auto mt-16">
-        <div class="bg-gray-100 py-2 px-4">
-            <h2 class="text-xl font-semibold text-gray-800">Favoritos</h2>
-        </div>
-        <ul class="divide-y divide-gray-200">
-            <li class="flex items-center py-4 px-6">
-                <span class="text-gray-700 text-lg font-medium mr-4">1.</span>
-
-                <div class="flex-1">
-                    <h3 class="text-lg font-medium text-gray-800">Fracaso</h3>
-                    <p class="text-gray-600 text-base">Aurora Bertrana</p>
-                </div>
-            </li>
-            <li class="flex items-center py-4 px-6">
-                <span class="text-gray-700 text-lg font-medium mr-4">2.</span>
-               
-                <div class="flex-1">
-                    <h3 class="text-lg font-medium text-gray-800">Una madre</h3>
-                    <p class="text-gray-600 text-base">Diana Aradas</p>
-                </div>
-            </li>
-            <li class="flex items-center py-4 px-6">
-                <span class="text-gray-700 text-lg font-medium mr-4">3.</span>
-              
-                <div class="flex-1">
-                    <h3 class="text-lg font-medium text-gray-800">Limónov</h3>
-                    <p class="text-gray-600 text-base">Enmanuel Carrére</p>
-                </div>
-            </li>
-        
-        </ul>
-    </div>
-
-      </div>
-      
+    
 
 
 </body>
