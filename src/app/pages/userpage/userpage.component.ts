@@ -12,7 +12,7 @@ import { BooksServiceService } from '../../services/books-service.service';
 export class UserpageComponent implements OnInit {
   userData: any;
   favoriteBooks: any [] = [];
-
+  readBooks: any[] = [];
 
   constructor(private userService: UsersService, private booksService: BooksServiceService) {}
 
@@ -21,21 +21,36 @@ export class UserpageComponent implements OnInit {
     this.userData = this.userService.getUserData();
     console.log('datitos', this.userData);
 
-    if (this.userData && this.userData.user_favorites) {
-      console.log('favoritos', this.userData.user_favorites);
-
+    if (this.userData) {
       // Obtener la información completa de los libros favoritos
-      this.fetchFavoriteBooksInfo(this.userData.user_favorites)
-        .then((bookInfos: any[]) => {
-          console.log('Información de los favs:', bookInfos);
-          // Asignar la información de los libros favoritos
-          this.favoriteBooks = bookInfos;
-        })
-        .catch(error => {
-          console.error('Error al obtener la información de los libros favoritos:', error);
-        });
-    } else {
-      console.log('No se encontraron favoritos para este usuario.');
+      if (this.userData.user_favorites) {
+        console.log('favoritos', this.userData.user_favorites);
+        this.fetchFavoriteBooksInfo(this.userData.user_favorites)
+          .then((bookInfos: any[]) => {
+            console.log('Información de los favs:', bookInfos);
+            this.favoriteBooks = bookInfos; // Asignar la información de los libros favoritos
+          })
+          .catch(error => {
+            console.error('Error al obtener la información de los libros favoritos:', error);
+          });
+      } else {
+        console.log('No se encontraron favoritos para este usuario.');
+      }
+
+      // Obtener la información completa de los libros leídos
+      if (this.userData.user_read) {
+        console.log('leidos', this.userData.user_read);
+        this.fetchReadBooksInfo(this.userData.user_read)
+          .then((bookInfos: any[]) => {
+            console.log('Información de los leídos:', bookInfos);
+            this.readBooks = bookInfos; // Asignar la información de los libros leídos
+          })
+          .catch(error => {
+            console.error('Error al obtener la información de los libros leídos:', error);
+          });
+      } else {
+        console.log('No se encontraron libros leídos para este usuario.');
+      }
     }
   }
 
@@ -44,7 +59,13 @@ export class UserpageComponent implements OnInit {
     const promises = bookIds.map((bookId: string) => {
       return this.booksService.getBooksByiD(bookId).toPromise();
     });
-
     return Promise.all(promises);
   }
-}
+
+  // Función para obtener la información completa de los libros leídos
+  private fetchReadBooksInfo(bookIds: string[]): Promise<any[]> {
+    const promises = bookIds.map((bookId: string) => {
+      return this.booksService.getBooksByiD(bookId).toPromise();
+    });
+    return Promise.all(promises);
+  }}

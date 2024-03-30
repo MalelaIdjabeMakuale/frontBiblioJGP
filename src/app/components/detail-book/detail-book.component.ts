@@ -54,5 +54,23 @@ export class DetailBookComponent implements OnInit {
     }
   }
 
+  addToRead(): void {
+    console.log('userdataid', this.userData.user_id);
+    console.log('bookid', this.book._id);
+    if (this.userData && this.book) {
+      this.userService.addReadBook(this.userData.user_id, this.book._id).subscribe(
+        (response: any) => {
+          this.userData = response.userData;
+          this.userService.setUserData(response.userData);
+          alert('Libro añadido a leídos correctamente');
+        },
+        (error) => {
+          console.error('Error adding book to read:', error);
+          alert('Error al añadir el libro a leídos');
+        }
+      );
+    }
+  }
+
  
 }

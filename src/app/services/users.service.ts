@@ -33,6 +33,7 @@ export class UsersService {
     console.log('Datos del usuario:', userData); 
     return userData;
   }
+  
 
   clearUserData() {
     localStorage.removeItem(this.userDataKey);
@@ -42,6 +43,15 @@ export class UsersService {
 
   addToFavorites(userId: string, bookId: string): Observable<any> {
     const url = `${this.userUrl}/${userId}/addToFavorites/${bookId}`;
+    return this.http.put<any>(url, {}).pipe(
+      catchError((error) => {
+        return throwError(error);
+      })
+    );
+  }
+
+  addReadBook(userId: string, bookId: string): Observable<any> {
+    const url = `${this.userUrl}/${userId}/addReadBook/${bookId}`;
     return this.http.put<any>(url, {}).pipe(
       catchError((error) => {
         return throwError(error);

@@ -18,7 +18,4 @@ Añadir a leídos (añadir fecha)
 
 
 HACIENDO
-
-- Los favoritos guarden el nombre y el titulo
-
--añadir lista
+user data es undefined despues de añadir a favoritos o leidos
