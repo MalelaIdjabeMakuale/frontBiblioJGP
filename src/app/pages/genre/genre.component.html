@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover mt-20" style="background: #f2fbf8">
+<body class="font-sans bg-gray-50 antialiased text-gray-900 leading-normal tracking-wider bg-cover mt-20">
  <div class="p-10">
-   <h1><b>Géneros</b></h1>
+   <h1 class="text-green-600 uppercase">Géneros</h1>
 <ul>
      @for (g of genre; track $index) {
-        <li class="p-4 hover:underline capitalize" [routerLink]="['/genero', g]">{{g}}</li>
+        <li class="p-4 hover:underline capitalize" style="cursor: pointer;"  [routerLink]="['/genero', g]">{{g}}</li>
         }
 </ul> 
 </div>   

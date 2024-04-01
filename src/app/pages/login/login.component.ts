@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from '../../services/users.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -18,7 +18,9 @@ export class LoginComponent {
  
       email: new FormControl(),
       username: new FormControl(),
-      password: new FormControl()
+      password: new FormControl(),
+      surname: new FormControl(),
+      name: new FormControl()
     });
   }
 

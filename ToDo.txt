@@ -1,21 +1,8 @@
 
 
-(con aut) lista de deseos, listas de leídos con comentarios, quotes de libros que salgan en la ruleta aleatoria
-Random quotes
 
+TO DO 
 
--Página gestión
-- Menu hamburguesa (autores, catálogos)
+Transiciones
 
-
-
-
-
-
-Añadir a favoritos 
-Añadir a leídos (añadir fecha)
-
-
-
-HACIENDO
-user data es undefined despues de añadir a favoritos o leidos
+Favoritos y leídos reapasar y que se pueda borrar

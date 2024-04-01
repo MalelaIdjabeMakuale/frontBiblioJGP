@@ -19,7 +19,8 @@ export class LoginRegisterComponent {
       name: new FormControl(),
       email: new FormControl(),
       image: new FormControl(),
-      password: new FormControl()
+      password: new FormControl(),
+      surname: new FormControl()
     });
   }
 

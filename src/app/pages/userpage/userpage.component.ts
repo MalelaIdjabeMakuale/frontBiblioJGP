@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { BooksServiceService } from '../../services/books-service.service';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-userpage',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './userpage.component.html',
   styleUrl: './userpage.component.css'
 })
@@ -14,7 +15,7 @@ export class UserpageComponent implements OnInit {
   favoriteBooks: any [] = [];
   readBooks: any[] = [];
 
-  constructor(private userService: UsersService, private booksService: BooksServiceService) {}
+  constructor(private userService: UsersService, private booksService: BooksServiceService, private router:Router) {}
 
   ngOnInit() {
     // Obtener los datos del usuario del servicio UsersService
@@ -68,4 +69,10 @@ export class UserpageComponent implements OnInit {
       return this.booksService.getBooksByiD(bookId).toPromise();
     });
     return Promise.all(promises);
-  }}
+  }
+
+  logout() {
+    this.userService.clearUserData(); // Limpia los datos del usuario del localStorage
+    this.router.navigate(['/login']); // Redirige a la página de inicio de sesión
+  }
+}

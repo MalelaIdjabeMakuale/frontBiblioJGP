@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Route, RouterLink } from '@angular/router';
+import {RouterLink } from '@angular/router';
 import { UsersService } from '../../services/users.service';
 import { Router } from '@angular/router';
 
