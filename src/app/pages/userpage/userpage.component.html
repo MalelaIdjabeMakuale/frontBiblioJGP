@@ -1,112 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover mt-20">
-  <div class="lg:hidden bg-gray-50 p-4">
-    <img src="{{ userData.user_image }}" alt="Foto de usuario" class="w-16 h-16 rounded-full mx-auto">
-    <h5 class="mt-2 text-lg font-semibold text-blue-500 text-center">{{ userData.user_username }}</h5>
-    <p class="text-sm text-gray-500 text-center">{{ userData.user_name }}</p>
-    <div class="mt-4">
-      <button class="block w-full px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold rounded-lg" (click)="logout()">Cerrar sesión</button>
+  </head>
+  <body
+    class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover mt-20"
+  >
+    <div class="lg:hidden bg-gray-50 p-4">
+      <img
+        src="{{ userData.user_image }}"
+        alt="Foto de usuario"
+        class="w-16 h-16 rounded-full mx-auto"
+      />
+      <h5 class="mt-2 text-lg font-semibold text-blue-500 text-center">
+        {{ userData.user_username }}
+      </h5>
+      <p class="text-sm text-gray-500 text-center">{{ userData.user_name }}</p>
+      <div class="mt-4">
+        <button
+          class="block w-full px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold rounded-lg"
+          (click)="logout()"
+        >
+          Cerrar sesión
+        </button>
+      </div>
     </div>
-  </div>
-<aside class="hidden lg:block ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-gray-50 transition duration-300 lg:w-4/12 xl:ml-0 xl:w-[25%] 2xl:w-[20%] mt-20 mb-20">
-  <div>
-      <div class="mt-8 text-center">
-          <img src="{{ userData.user_image}}" alt="" class="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28">
-          <h5 class="hidden mt-4 text-xl font-semibold text-blue-600 lg:block">{{ userData.user_username }}</h5>
-          <span class="hidden text-gray-400 lg:block">{{ userData.user_name }}</span>
-      </div>
+    <aside
+      class="hidden lg:block ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-gray-50 transition duration-300 lg:w-4/12 xl:ml-0 xl:w-[25%] 2xl:w-[20%] mt-20 mb-20"
+    >
+      <div>
+        <div class="mt-8 text-center">
+          <img
+            src="{{ userData.user_image }}"
+            alt=""
+            class="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28"
+          />
+          <h5 class="hidden mt-4 text-xl font-semibold text-blue-600 lg:block">
+            {{ userData.user_username }}
+          </h5>
+          <span class="hidden text-gray-400 lg:block">{{
+            userData.user_name
+          }}</span>
+        </div>
 
-      <ul class="space-y-2 tracking-wide mt-8">
-         
+        <ul class="space-y-2 tracking-wide mt-8">
           <li>
-              <p class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-                  <img class= "favoritos h-6 fill-current text-gray-600 hover:text-green-700" src="../../../assets/icons/favs_icon.png">
-                  <span class="text-gray-700" style="cursor: pointer;">Favoritos {{ favoriteBooks.length }}</span>
-              </p>
+            <p
+              class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group"
+            >
+              <img
+                class="favoritos h-6 fill-current text-gray-600 hover:text-green-700"
+                src="../../../assets/icons/favs_icon.png"
+              />
+              <span class="text-gray-700" style="cursor: pointer"
+                >Favoritos {{ favoriteBooks.length }}</span
+              >
+            </p>
           </li>
           <li>
-              <p  class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-                 <img  class= "favoritos h-6 fill-current text-gray-600 hover:text-green-700" src="../../../assets/icons/read_icon.png">
-                  <span class="group-hover:text-gray-700" style="cursor: pointer;">Leídos {{readBooks.length}}</span>
-              </p>
+            <p
+              class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group"
+            >
+              <img
+                class="favoritos h-6 fill-current text-gray-600 hover:text-green-700"
+                src="../../../assets/icons/read_icon.png"
+              />
+              <span class="group-hover:text-gray-700" style="cursor: pointer"
+                >Leídos {{ readBooks.length }}</span
+              >
+            </p>
           </li>
-         
-        
-      </ul>
-  </div>
-
-  <div class="px-6 -mx-6 pt-4 flex justify-between items-center border-t">
-      <button class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-        <img class= "favoritos h-6 fill-current text-gray-600 hover:text-green-700" src="../../../assets/icons/logout_icon.png">
-          <span  routerLink="/login" class="group-hover:text-gray-700" (click)="logout()">Cerrar sesión</span>
-      </button>
-  </div>
-</aside>
-<div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
-  
-
-  <div class="px-6 pt-6 2xl:container">
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <div class="md:col-span-2 lg:col-span-1" >
-             
-          </div>
-          <div>
-              <div class="h-full py-6 px-6 rounded-xl border border-gray-200 bg-gray-50">
-                  <h5 class="text-xl text-green-700">FAVORITOS</h5>
-                  <div class="my-8">
-                    <div>
-                      <ul class="mt-8 space-y-3 font-medium">
-                        @for (book of favoriteBooks; track $index) {
-                          <li class="flex items-start lg:col-span-1">
-            
-                              <p style="cursor: pointer;" routerLink="/catalogo/{{ book._id }}" class="capitalize ml-3 leading-5 text-gray-600">
-                                - {{book.title}}
-                              </p>
-                          </li>}
-                         
-                         
-                         
-                         
-                      </ul>
-                  </div>
-                  </div>
-                  
-                  
-              </div>
-          </div>
-          <div>
-              <div class="lg:h-full py-8 px-6 text-gray-600 rounded-xl border border-gray-200 bg-gray-50">
-                <h5 class="text-xl text-green-700">LEÍDOS</h5>
-                <ul class="mt-8 space-y-3 font-medium">
-                  @for (book of readBooks; track $index) {
-                    <li class="flex items-start lg:col-span-1">
-                        
-                        <p style="cursor: pointer;" routerLink="/catalogo/{{ book._id }}" class="capitalize ml-3 leading-5 text-gray-600">
-                         - {{book.title}}
-                        </p>
-                    </li>}
-                   
-                   
-                   
-                   
-                </ul>
-                   
-              </div>
-          </div>
+        </ul>
       </div>
-  </div>
-</div>
 
-
-      
-      
-
-
-</body>
+      <div class="px-6 -mx-6 pt-4 flex justify-between items-center border-t">
+        <button
+          class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group"
+        >
+          <img
+            class="favoritos h-6 fill-current text-gray-600 hover:text-green-700"
+            src="../../../assets/icons/logout_icon.png"
+          />
+          <span
+            routerLink="/login"
+            class="group-hover:text-gray-700"
+            (click)="logout()"
+            >Cerrar sesión</span
+          >
+        </button>
+      </div>
+    </aside>
+    <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
+      <div class="px-6 pt-6 2xl:container">
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div class="md:col-span-2 lg:col-span-1"></div>
+          <div>
+            <div
+              class="h-full py-6 px-6 rounded-xl border border-gray-200 bg-gray-50"
+            >
+              <h5 class="text-xl text-green-700">FAVORITOS</h5>
+              <div class="my-8">
+                <div>
+                  <ul class="mt-8 space-y-3 font-medium">
+                    @for (book of favoriteBooks; track $index) {
+                    <li class="flex items-start hover:underline lg:col-span-1">
+                      <p
+                        style="cursor: pointer"
+                        routerLink="/catalogo/{{ book._id }}"
+                        class="capitalize ml-3 leading-5 text-gray-600"
+                      >
+                        - {{ book.title }}
+                      </p>
+                    </li>
+                    }
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              class="lg:h-full py-8 px-6 text-gray-600 rounded-xl border border-gray-200 bg-gray-50"
+            >
+              <h5 class="text-xl text-green-700">LEÍDOS</h5>
+              <ul class="mt-8 space-y-3 font-medium">
+                @for (book of readBooks; track $index) {
+                <li class="flex items-start hover:underline lg:col-span-1">
+                  <p
+                    style="cursor: pointer"
+                    routerLink="/catalogo/{{ book._id }}"
+                    class="capitalize ml-3 leading-5 text-gray-600"
+                  >
+                    - {{ book.title }}
+                  </p>
+                </li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

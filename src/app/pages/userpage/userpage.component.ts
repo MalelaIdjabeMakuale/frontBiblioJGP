@@ -11,25 +11,29 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './userpage.component.css'
 })
 export class UserpageComponent implements OnInit {
+
+  //Declara una variable que contendrá los datos del usuario. 
   userData: any;
+  // Declara una variable que contrendrá la información completa de los libros favoritos del usuario. 
   favoriteBooks: any [] = [];
+  //Declara una variable que contrendrá la información completa de los libros leídos del usuario. 
   readBooks: any[] = [];
 
   constructor(private userService: UsersService, private booksService: BooksServiceService, private router:Router) {}
 
   ngOnInit() {
-    // Obtener los datos del usuario del servicio UsersService
+  
     this.userData = this.userService.getUserData();
-    console.log('datitos', this.userData);
+ 
 
     if (this.userData) {
-      // Obtener la información completa de los libros favoritos
+   
       if (this.userData.user_favorites) {
         console.log('favoritos', this.userData.user_favorites);
         this.fetchFavoriteBooksInfo(this.userData.user_favorites)
           .then((bookInfos: any[]) => {
             console.log('Información de los favs:', bookInfos);
-            this.favoriteBooks = bookInfos; // Asignar la información de los libros favoritos
+            this.favoriteBooks = bookInfos; 
           })
           .catch(error => {
             console.error('Error al obtener la información de los libros favoritos:', error);
@@ -38,13 +42,13 @@ export class UserpageComponent implements OnInit {
         console.log('No se encontraron favoritos para este usuario.');
       }
 
-      // Obtener la información completa de los libros leídos
+    
       if (this.userData.user_read) {
         console.log('leidos', this.userData.user_read);
         this.fetchReadBooksInfo(this.userData.user_read)
           .then((bookInfos: any[]) => {
             console.log('Información de los leídos:', bookInfos);
-            this.readBooks = bookInfos; // Asignar la información de los libros leídos
+            this.readBooks = bookInfos; 
           })
           .catch(error => {
             console.error('Error al obtener la información de los libros leídos:', error);
@@ -55,7 +59,7 @@ export class UserpageComponent implements OnInit {
     }
   }
 
-  // Función para obtener la información completa de los libros favoritos
+
   private fetchFavoriteBooksInfo(bookIds: string[]): Promise<any[]> {
     const promises = bookIds.map((bookId: string) => {
       return this.booksService.getBooksByiD(bookId).toPromise();
@@ -63,16 +67,16 @@ export class UserpageComponent implements OnInit {
     return Promise.all(promises);
   }
 
-  // Función para obtener la información completa de los libros leídos
+ 
   private fetchReadBooksInfo(bookIds: string[]): Promise<any[]> {
     const promises = bookIds.map((bookId: string) => {
       return this.booksService.getBooksByiD(bookId).toPromise();
     });
     return Promise.all(promises);
   }
-
+//Define el método que se llama cuando el usuario hace clic en el botón de cerrar sesión. Este método llama al servicio clearUserData() para borrar los datos del usuario y luego navega a la ruta marcada.
   logout() {
-    this.userService.clearUserData(); // Limpia los datos del usuario del localStorage
-    this.router.navigate(['/login']); // Redirige a la página de inicio de sesión
+    this.userService.clearUserData(); 
+    this.router.navigate(['/login']); 
   }
 }

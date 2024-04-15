@@ -1,22 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body class="font-sans bg-gray-50 antialiased leading-normal tracking-wider bg-cover mt-20 p-6" >
-<div class="p-10">
-     <h1 class="text-green-600 uppercase">Lista de autoras</h1>
-    <ul>
+  </head>
+  <body
+    class="font-sans bg-gray-50 antialiased leading-normal tracking-wider bg-cover mt-20 p-6"
+  >
+    <div class="p-10">
+      <h1 class="text-green-600 uppercase">Lista de autoras</h1>
+      <ul>
         @for (author of authors; track $index) {
-        <li class="p-4 hover:underline capitalize" style="cursor: pointer;" [routerLink]="['/autoras', author]"> {{author}}</li>}
-        
-    </ul>
-</div>
-   
-
-
-</body>
+        <li
+          class="p-4 hover:underline capitalize"
+          style="cursor: pointer"
+          [routerLink]="['/autoras', author]"
+        >
+          {{ author }}
+        </li>
+        }
+      </ul>
+    </div>
+  </body>
 </html>
