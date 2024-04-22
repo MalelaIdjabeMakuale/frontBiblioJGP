@@ -8,7 +8,7 @@ import { catchError } from 'rxjs';
 export class UsersService {
   //Declarar las variables para almacenar la URL base de la API de usuarios y la clave utilizada para guardar y recuperar datos de usuario en el local storage del navegador.
 
-  private userUrl: string = 'http://localhost:3000/api/users';
+  private userUrl: string = 'https://back-biblio-jgp.vercel.app/api/users';
   private userDataKey = 'userData';
 
   // Inyecta la dependencia que permitirá hacer solicitudes HTTP.

@@ -9,7 +9,7 @@ export class BooksServiceService {
 
   //Declara una variable para almacenar la URL base de la API de libros.
 
-  public booksUrl:string="http://localhost:3000/api/books"
+  public booksUrl:string="https://back-biblio-jgp.vercel.app/api/books"
  
  // Inyecta la dependencia que permitirá hacer solicitudes HTTP.
   constructor(private http: HttpClient) { }
