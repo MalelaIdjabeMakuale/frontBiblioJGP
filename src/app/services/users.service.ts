@@ -34,7 +34,7 @@ export class UsersService {
   getUserData() {
     const userDataString = localStorage.getItem(this.userDataKey);
     const userData = userDataString ? JSON.parse(userDataString) : null;
-    console.log('Datos del usuario:', userData);
+   
     return userData;
   }
   //Elimina los datos del usuario del almacenamiento local del navegador

@@ -28,10 +28,10 @@ export class LoginComponent {
   async onSubmit() {
     try {
       const response = await this.UsersService.login(this.loginForm.value);
-      console.log('respuesta', response);
+    
 
       const decodedToken = JSON.parse(atob(response.token.split('.')[1]));
-      console.log('Datos del usuario:', decodedToken);
+   
 
       this.UsersService.setUserData(decodedToken);
 

@@ -28,7 +28,7 @@ export class LoginRegisterComponent {
   // Método que se ejecuta cuando se envía el formulario de inicio de sesión.
   async onSubmit() {
     const response = await this.UsersService.register(this.registerForm.value);
-    console.log(response);
+
     this.router.navigate(['/login']);
   }
 }

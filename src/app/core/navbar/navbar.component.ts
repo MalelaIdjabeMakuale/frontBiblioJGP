@@ -22,7 +22,7 @@ export class NavbarComponent {
   //Define el método que se ejecuta cuando el componente se inicializa. En este método, se llama al servicio getUserData() para obtener los datos del usuario y se establece la visibilidad de ciertos elementos en la barra de navegación en función de si hay datos de usuario o no.
   ngOnInit() {
     this.userData = this.userService.getUserData();
-    console.log('Datos del usuario:', this.userData);
+   
 
     this.showUserLi = !!this.userData;
   }

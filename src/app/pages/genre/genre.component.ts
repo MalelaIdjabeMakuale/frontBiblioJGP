@@ -27,7 +27,7 @@ export class GenreComponent {
   processGenre(books: IBooks[]) {
     this.genre = [...new Set(books.map((book) => book.genre))];
 
-    console.log('qué géneros', this.genre);
+
 
     this.genre.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
   }

@@ -24,7 +24,7 @@ export class DetailAuthorComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.author = params['author'];
       this.getBooksByAuthor(this.author);
-      console.log("params del author", this.author)
+     
     });
   }
 
@@ -32,7 +32,7 @@ export class DetailAuthorComponent implements OnInit {
     this.bookService.getBooksByAuthor(author).subscribe((data: any) => {
       const allBooks: IBooks[] = data.data;
       this.books = allBooks.filter(book => book.author === author);
-      console.log("data de los libros", this.books)
+      
     });}
 
 }

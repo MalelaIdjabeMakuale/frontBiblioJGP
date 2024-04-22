@@ -24,7 +24,7 @@ export class DetailGenreComponent implements OnInit{
     this.route.params.subscribe(params => {
       this.genre = params['genre'];
       this.getBooksByGenre(this.genre);
-      console.log("params del genre", this.genre)
+  
     });
   }
 
@@ -32,7 +32,7 @@ export class DetailGenreComponent implements OnInit{
     this.bookService.getBooksByGenre(genre).subscribe((data: any) => {
       const allBooks: IBooks[] = data.data;
       this.books = allBooks.filter(book => book.genre === genre);
-      console.log("data de los libros", this.books)
+     
     });}
 
 }
